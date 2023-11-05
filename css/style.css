@@ -1,0 +1,370 @@
+html {
+    scroll-behavior: smooth;
+} 
+
+.skip a{
+    background: white;
+    left: 0;
+    padding: 6px;
+    -webkit-transition: top 1s ease-out;
+    transition: top 1s ease-out;
+    z-index: 1;
+}
+  
+.skip a {
+    position: absolute;
+    top: -40px;
+}
+  
+.skip a:focus { 
+    top: 20px;
+}
+
+nav li {
+    display:inline;
+    padding-right:20px;
+}
+
+nav {
+    background-color: #DEDBD2;
+    padding: 10px 0; 
+    text-align: center;
+}
+  
+nav a {
+    color: black;
+    font-size: large;
+    font-weight: bold;
+    text-decoration: none; 
+}
+
+nav a:hover, nav a:focus {
+    color: blue;
+    text-decoration: underline;
+}
+
+nav a.current {
+    color: blue;
+    text-decoration: underline; 
+}
+
+body {
+    background-color: #B0C4B1;
+    line-height: 2;
+}
+
+header {
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    /* grid-template-columns: 1fr 5fr 1fr; 
+    gap: 15px; */
+}
+
+/* .container div:first-child {
+    grid-column: 1/-1;
+    min-height: 500px;
+    background-image: url("../images/travel/iceland.gif");
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: cover;
+    background-position: center;
+} */
+
+.text-block {
+    align-self: center;
+    max-height: 250px;
+    overflow: scroll;
+}
+
+.recipe_images {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    width: 100%;
+    overflow: visible;
+}
+
+.recipe_images img {
+    max-width: 100%; /* Ensure images don't exceed the width of their container */
+    height: 100%;
+    border: 2px solid #000;
+    border-radius: 10px;
+}
+
+.recipe-main {
+    display: grid;
+    grid-column: 1/-1;
+    grid-gap: 10px;
+}
+
+.recipe-main img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #000;
+    border-radius: 10px;
+    animation-duration: 7s;
+    animation-name: fadein;
+    animation-fill-mode: forwards;
+}
+
+
+.recipe-ing ul{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    align-content: center;
+
+}
+
+.travel-main {
+    display: grid;
+    grid-column: 1/-1;
+    grid-row-gap: 20px;
+}
+
+.travel-main img {
+    max-width: 100%; /* Ensure images don't exceed the width of their container */
+    height: 100%;
+    border: 2px solid #000;
+    border-radius: 10px;
+    animation-duration: 3s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+    }
+  
+    to {
+      margin-left: 0%;
+    }
+  }
+
+.travel-gallery {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    overflow: visible;
+} 
+
+.travel-gallery img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #000;
+    border-radius: 10px;
+} 
+.travel-gallery figcaption {
+    text-align: center;
+    z-index: 1;
+    
+}
+
+.pet-main {
+    display: grid;
+    grid-column: 1/-1;
+    grid-row-gap: 20px;
+}
+
+.pet-main img {
+    max-width: 100%; /* Ensure images don't exceed the width of their container */
+    height: 100%;
+    border: 2px solid #000;
+    border-radius: 10px;
+    animation-duration: 7s;
+    animation-name: fadein;
+    animation-fill-mode: forwards;
+}
+
+.pet-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-gap: 10px;
+    width: 100%;
+    overflow: visible;
+} 
+
+.pet-gallery img {
+    max-width: 100%;
+    height: 100%;
+    border: 2px solid #000;
+    border-radius: 10px;
+} 
+
+.pet-list ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+@keyframes fadein {
+    from {
+      opacity: 0; /* Start with 0 opacity (invisible) */
+    }
+    to {
+      opacity: 1; /* End with full opacity (visible) */
+    }
+}
+
+@media screen and (prefers-reduced-motion: reduce){
+    html{
+        scroll-behavior: auto; /* Removes scroll animation */
+    }
+  
+    .skip a{
+      -webkit-transition: none; /* sets to default setting */
+      transition: none;        /* sets to default setting */
+     }
+  
+    /*Turn off parallax*/
+    header{
+      background-attachment: initial;
+    }
+
+    img[src$=".gif"] {
+        display: none;
+    }
+    .pet-main img {
+        animation: none;
+    }
+    .recipe-main img {
+        animation: none;
+    }
+    .travel-main img {
+        animation: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .recipe-main {
+        display: block;
+        width: 400px;
+        margin: auto;
+    }
+    
+    .travel-main {
+        display: block;
+        width: 400px;
+        margin: auto;
+    }
+
+    .pet-main {
+        display: block;
+        width: 400px;
+        margin: auto;
+    }
+    
+    .pet-gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr; 
+        grid-gap: 10px;
+        width: 100%;
+        max-height: 50%;
+        overflow: visible;
+    } 
+    .recipe_images img {
+        max-width: 100%; /* Ensure images don't exceed the width of their container */
+        height: 100%;
+        border: 2px solid #000;
+        border-radius: 10px;
+        margin: auto;
+    }
+
+    .travel-gallery {
+        display: block;
+        max-width: 100%;
+        overflow: hidden;
+        position: relative;
+      }
+
+    .scroll-button {
+        display: block;
+        grid-gap: 10px;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        margin: 10px;
+        background-color: #DEDBD2;
+        color: black;
+        font-size: large;
+        font-weight: bold;
+        text-decoration: none; 
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: space-around; /* Adjust this for the desired spacing */
+    }
+
+    /* lightbox.css */
+    .lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height:100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .lightbox-content {
+        position: relative;
+        text-align: center;
+    }
+
+    .lightbox-content img {
+        max-width: 60%;
+        max-height: 60%;
+        border: 2px solid #000;
+        border-radius: 10px;
+    }
+
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    /* .travel-gallery figure {
+        display: none;
+    }
+
+    .travel-gallery img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+    .travel-gallery figure img {
+        width: 100%;
+        height: auto;
+      }
+
+    .travel-gallery figure {
+        animation: slideshow 5s linear infinite;
+    }
+
+    @keyframes slideshow {
+        0% {
+          opacity: 0;
+        }
+        25% {
+          opacity: 1;
+        }
+        75% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+     */
+}
