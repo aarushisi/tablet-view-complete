@@ -12,14 +12,12 @@ document.addEventListener('DOMContentLoaded', function () {
             lightbox.innerHTML = `
                 <div class="lightbox-content">
                     <img src="${imageUrl}" alt="Lightbox Image">
-                    <a class="close-button" href="#">Close</a>
                 </div>
             `;
 
             document.body.appendChild(lightbox);
 
-            lightbox.querySelector('.close-button').addEventListener('click', function (e) {
-                e.preventDefault();
+            lightbox.addEventListener('click', function () {
                 document.body.removeChild(lightbox);
             });
         });
